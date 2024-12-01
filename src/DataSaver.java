@@ -11,12 +11,12 @@ public class DataSaver {
         JFileChooser chooser = new JFileChooser();
         ArrayList<String> lines = new ArrayList<>();
         Scanner in = new Scanner(System.in);
-        boolean moreRecords = true;
+        boolean moreRecords = false;
 
         final int FIELDS_LENGTH = 5;
         String firstName, lastName, email, yearOfBirth, idNumber;
 
-        while (moreRecords) {
+        while (!moreRecords) {
             System.out.print("Enter First Name: ");
             firstName = in.nextLine();
 
@@ -36,9 +36,9 @@ public class DataSaver {
             String record = firstName + ", " + lastName + ", " + idNumber + ", " + email + ", " + yearOfBirth;
             lines.add(record);
 
-            System.out.print("Do you want to add another record? (yes/no): ");
+            System.out.print("Do you want to add another record? (y/n): ");
             String response = in.nextLine().toLowerCase();
-            moreRecords = response.equals("yes");
+            moreRecords = response.equals("n");
         }
 
         System.out.print("Enter the file name (with .csv extension): ");
